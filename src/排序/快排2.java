@@ -1,5 +1,5 @@
 package 排序;
-
+//没排一次将整数组基于基准值划分为两个部分，其中左部分的元素都是比右部分小
 public class 快排2 {//双指针单个移动
 	public static void sortArray(int[] nums, int left, int right) {
 		int low = left+1;

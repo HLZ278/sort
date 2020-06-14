@@ -51,32 +51,35 @@ package 排序;
  * 
  * [9,6,8,4,5]   [5,8,6,4,9]    [8,5,6,4,9]     [4,5,6,8,9]  	  [6,5,4,8,9]	[4,5,6,8,9]	 	[5,4,6,8,9]		[4,5,6,8,9]	   [4,5,6,8,9]
  */
+
+
+//可以打开打印注释，但是打印耗时，最好把数量级设非常少
 public class 堆排序 {
 	
     private static void sortArray(int[] nums) {
     	//步骤一
 		heapify(nums);
-		System.out.print("步骤一:");
-		for (int i : nums) {
-			System.out.print(i);
-		}
-		System.out.println();
+//		System.out.print("步骤一:");
+//		for (int i : nums) {
+//			System.out.print(i);
+//		}
+//		System.out.println();
 		//步骤二
 		
 		for (int i = nums.length - 1, j = 1; i >= 1; i--, j++) {
 			//根顶与数组末尾元素交换
 			swap(nums, 0, i);
-			System.out.print("步骤二---第"+j+"次交换:");
-			for (int n : nums) {
-				System.out.print("=>"+n);
-			}
-			System.out.println();
+//			System.out.print("步骤二---第"+j+"次交换:");
+//			for (int n : nums) {
+//				System.out.print("=>"+n);
+//			}
+//			System.out.println();
 			rebuildHeap(nums, 0, i-1);
-			System.out.print("步骤二---第"+j+"次重构:");
-			for (int n : nums) {
-				System.out.print("=>"+n);
-			}
-			System.out.println();
+//			System.out.print("步骤二---第"+j+"次重构:");
+//			for (int n : nums) {
+//				System.out.print("=>"+n);
+//			}
+//			System.out.println();
 		}
     }
 	private static void rebuildHeap(int[] nums, int parent, int last) {
@@ -116,15 +119,19 @@ public class 堆排序 {
 	}
 	
 	public static void main(String[] args) {
-		int[] a= //{4,6,8,5,9};
-			{-74,48,-20,2,10,
-					-84,-5,-9,11,-24,-91,2,-71,64,63,80,28,-30,
-					-58,-11,-44,-87,-22,54,-74,-10,-55,-28,-46,29,
-					10,50,-72,34,26,25,8,51,13,30,35,-8,50,65,-6,16,
-					-2,21,-78,35,-13,14,23,-3,26,-90,86,25,-56,91,-13,
-					92,-25,37,57,-20,-69,98,95,45,47,29,86,-28,73,-44,
-					-46,65,-84,-96,-24,-12,72,-68,93,57,92,52,-45,-2,
-					85,-63,56,55,12,-85,77,-39};
-		sortArray(a);
+//		int[] a= //{4,6,8,5,9};
+//			{-74,48,-20,2,10,
+//					-84,-5,-9,11,-24,-91,2,-71,64,63,80,28,-30,
+//					-58,-11,-44,-87,-22,54,-74,-10,-55,-28,-46,29,
+//					10,50,-72,34,26,25,8,51,13,30,35,-8,50,65,-6,16,
+//					-2,21,-78,35,-13,14,23,-3,26,-90,86,25,-56,91,-13,
+//					92,-25,37,57,-20,-69,98,95,45,47,29,86,-28,73,-44,
+//					-46,65,-84,-96,-24,-12,72,-68,93,57,92,52,-45,-2,
+//					85,-63,56,55,12,-85,77,-39};
+		int[] arr = new int[ 8000000] ;
+		for (int n = 0; n < 8000000; n++) {
+			arr[n] = (int) (Math.random() * 8000000) ;
+		}
+		sortArray(arr);
 	}
 }
